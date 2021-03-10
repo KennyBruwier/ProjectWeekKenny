@@ -176,29 +176,30 @@ namespace ProjectWeekKenny
 
                     if ((totSpeler>totDealer)||(totDealer > 21))
                     {
-                        Console.WriteLine("U heeft gewonnen!");
+                        Console.WriteLine("U heeft 20$ gewonnen!");
                         budget += 20;
                     }
                     else if (totDealer == totSpeler)
                         Console.WriteLine("Gelijk!");
                     else 
                     { 
-                        Console.WriteLine("U heeft verloren!");
+                        Console.WriteLine($"U heeft {inzet} verloren!");
                         budget -= inzet;
                     }
                 }
                 else if (totSpeler == 21)
                 {
-                    Console.WriteLine("U heeft 21! proficiat.");
+                    Console.WriteLine("U heeft 25$ gewonnen! proficiat.");
                     Console.ReadLine();
                     budget += 25;
                 }
                 else
                 {
-                    Console.WriteLine("U heeft meer dan 21! verloren");
+                    Console.WriteLine("U heeft meer dan 21! 10$ verloren");
                     nogEenKaart = false;
                     budget -= 10;
                 }
+                Console.WriteLine($"Uw budget: {budget}");
                 nogEensSpelen = InputBool("Nog een potje BlackJack? j/n");
             } 
             if (budget < 10)
