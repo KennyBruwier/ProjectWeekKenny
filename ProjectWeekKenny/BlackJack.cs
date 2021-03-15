@@ -139,18 +139,24 @@ namespace ProjectWeekKenny
                     Console.WriteLine("Jou kaarten zijn:\n");
                     totSpeler = 0;
                     int teller = 0;
+                    int tellerAce = 0;
                     if (nogEenKaart) spelersHand.Add(boekKaarten.TrekEenKaart());
                     foreach (Kaart kaart in spelersHand)
                     {
                         if (kaart.Voorkant == Voorkant.Aas)
                         {
-                            if (totSpeler + 11 < 22) kaart.Waarde = 11;
-                            else kaart.Waarde = 1;
+                            tellerAce++;
+                            kaart.Waarde = 11;
+                            //if (totSpeler + 11 < 22) kaart.Waarde = 11;
+                            //else kaart.Waarde = 1;
                         }
                         totSpeler += kaart.Waarde;
                         Console.WriteLine($"Kaart {++teller}:\t{kaart.Voorkant}\t{kaart.Achterkant}\twaarde: {kaart.Waarde}");
                     }
-
+                    for (int i = tellerAce; i > 0; i--)
+                    {
+                        if (totSpeler > 21) totSpeler -= 10;
+                    }
                     Console.WriteLine($"Totaal:\t{totSpeler}\n");
                     if (totSpeler < 21) nogEenKaart = InputBool("Nog een kaart? j/n");
                     else Console.ReadLine();

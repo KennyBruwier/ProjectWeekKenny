@@ -30,7 +30,6 @@ namespace ProjectWeekKenny
                 {
                     kaarten.Add(Tekens[j]);
                 }
-
             }
             do
             {

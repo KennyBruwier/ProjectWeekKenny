@@ -70,7 +70,8 @@ namespace ProjectWeekKenny
                             }
                         }
                     }
-                    
+                    // diagonaal score moet er nog bij
+
                     if (vorigeScore < budget)
                         Console.WriteLine($"Je hebt {budget - vorigeScore}{currency} gewonnen!");
                     else
@@ -99,7 +100,6 @@ namespace ProjectWeekKenny
                 case 'y':
                 case 'j': return Cyes;
                 case 'n': return Cno;
-
             }
             return false;
 

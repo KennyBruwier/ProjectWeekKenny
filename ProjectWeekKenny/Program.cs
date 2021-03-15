@@ -119,7 +119,7 @@ namespace ProjectWeekKenny
                             {
                                 case MenuUitgelogd.aanmaken:
                                     {
-                                        if (SearchDataInRecord(bestandsnaam, userName) == userName)
+                                        if (SearchDataInRecord(bestandsnaam, userName).ToLower() == userName.ToLower())
                                         {
                                             string voirgeUserName = userName;
                                             do
@@ -368,7 +368,6 @@ namespace ProjectWeekKenny
             } while (!exit);
             Console.WriteLine("Tot nog eens!");
             Console.ReadKey();
-            
         }
 
 
@@ -477,12 +476,9 @@ namespace ProjectWeekKenny
             {
                 int indexChar = unEncryted.IndexOf(toEncrypt[i]);
                 if ((indexChar != -1) && (indexChar <= encryptKey.Length))
-                {
                     encrypted += encryptKey[indexChar];
-                }else
-                {
+                else
                     encrypted += toEncrypt[i];
-                }
             }
             return encrypted;
         }
@@ -672,17 +668,14 @@ namespace ProjectWeekKenny
                 case 'y':
                 case 'j': return Cyes;
                 case 'n': return Cno;
-
             }
             return false;
-
         }
         static char InputChr(string tekst = "Keuze: ")
         {
             Console.Write(tekst);
             ConsoleKeyInfo keyStrike = Console.ReadKey(true);
             return keyStrike.KeyChar;
-
         }
     }
 
